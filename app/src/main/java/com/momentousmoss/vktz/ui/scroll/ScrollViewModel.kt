@@ -2,7 +2,6 @@ package com.momentousmoss.vktz.ui.scroll
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.momentousmoss.vktz.loaders.DEFAULT_SKIP
 import com.momentousmoss.vktz.loaders.JsonObjectService
 import com.momentousmoss.vktz.loaders.Products
 import com.momentousmoss.vktz.ui.main.MainViewModel
