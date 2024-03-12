@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.momentousmoss.vktz.R
 import com.momentousmoss.vktz.databinding.FragmentScrollBinding
@@ -37,6 +39,7 @@ class ScrollFragment : MainFragment() {
         binding.apply {
             viewModel = scrollViewModel
             lifecycleOwner = viewLifecycleOwner
+            bottomNavigation.setupWithNavController(findNavController())
 
             productsScrollList.apply {
                 productsAdapter = ProductsAdapter(

@@ -1,6 +1,16 @@
 <resources>
     <string name="app_name">VkTz</string>
-    <string name="action_settings">Settings</string>
+    <string name="menu_main">Главный экран</string>
+    <string name="menu_about">О приложении</string>
+
+    <string name="about_title">Савин Артем</string>
+    <string name="about_description">Техническое задание для VK на вакансию Android-разработчик (стажировка).</string>
+    <string name="about_url"><u>https://hh.ru/resume/4b130f73ff054c57970039ed1f774e74626946</u></string>
+
+    <string name="about_underlined_link"><u>%1$s</u></string>
+    <string name="about_toast_copied">Ссылка скопирована в буфер обмена</string>
+
     <!-- Strings used for fragments for navigation -->
     <string name="scroll_fragment">Scroll Fragment</string>
+    <string name="about_fragment">About Fragment</string>
 </resources>

@@ -12,4 +12,11 @@
         tools:layout="@layout/fragment_scroll">
     </fragment>
 
+    <fragment
+        android:id="@+id/AboutFragment"
+        android:name="com.momentousmoss.vktz.ui.about.AboutFragment"
+        android:label="@string/about_fragment"
+        tools:layout="@layout/fragment_about">
+    </fragment>
+
 </navigation>

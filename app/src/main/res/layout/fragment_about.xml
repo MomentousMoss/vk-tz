@@ -8,28 +8,30 @@
 
         <variable
             name="viewModel"
-            type="com.momentousmoss.vktz.ui.scroll.ScrollViewModel" />
+            type="com.momentousmoss.vktz.ui.about.AboutViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.scroll.ScrollFragment">
+        tools:context=".ui.about.AboutFragment">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/products_scroll_list"
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:fadeScrollbars="false"
+            android:scrollbars="vertical"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
-            android:isScrollContainer="false"
-            android:nestedScrollingEnabled="false"
-            android:orientation="vertical"
-            app:fastScrollEnabled="false"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:spanCount="1"
-            tools:itemCount="40"
-            tools:listitem="@layout/item_scroll" />
+            app:layout_constraintBottom_toTopOf="@id/bottom_navigation">
+            <include
+                android:id="@+id/item_about_card"
+                layout="@layout/item_about_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp" />
+        </ScrollView>
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
