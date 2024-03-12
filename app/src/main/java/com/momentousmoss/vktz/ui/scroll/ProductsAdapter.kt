@@ -57,11 +57,11 @@ class ProductsAdapter(
                             override fun onResourceReady(
                                 resource: Drawable,
                                 model: Any,
-                                target: com.bumptech.glide.request.target.Target<Drawable>?,
+                                target: Target<Drawable>?,
                                 dataSource: DataSource,
                                 isFirstResource: Boolean
                             ): Boolean {
-                                imageProgressLoader.visibility = View.INVISIBLE
+                                imageProgressLoader.visibility = View.GONE
                                 return false
                             }
 
@@ -71,7 +71,8 @@ class ProductsAdapter(
                                 target: Target<Drawable>,
                                 isFirstResource: Boolean
                             ): Boolean {
-                                imageProgressLoader.visibility = View.INVISIBLE
+                                imageProgressLoader.visibility = View.GONE
+                                productImage.visibility = View.GONE
                                 return false
                             }
                         })

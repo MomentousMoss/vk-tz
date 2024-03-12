@@ -16,21 +16,23 @@
             android:orientation="horizontal">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="100dp"
+                android:layout_width="wrap_content"
                 android:layout_height="100dp"
                 android:layout_gravity="center">
 
                 <ProgressBar
                     android:id="@+id/imageProgressLoader"
-                    android:layout_width="match_parent"
+                    android:layout_width="100dp"
                     android:layout_height="match_parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     android:layout_gravity="center"
                     android:visibility="visible" />
 
                 <ImageView
                     android:id="@+id/productImage"
-                    android:layout_width="match_parent"
+                    android:layout_width="100dp"
                     android:layout_height="match_parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     tools:ignore="ContentDescription"
                     android:scaleType="center" />
             </androidx.constraintlayout.widget.ConstraintLayout>
