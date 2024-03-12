@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/ScrollFragment"
         android:name="com.momentousmoss.vktz.ui.scroll.ScrollFragment"
-        android:label="@string/first_fragment_label"
+        android:label="@string/scroll_fragment"
         tools:layout="@layout/fragment_scroll">
     </fragment>
 
