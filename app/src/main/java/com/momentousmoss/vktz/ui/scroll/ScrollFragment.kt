@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -44,6 +45,7 @@ class ScrollFragment : MainFragment() {
             productsScrollList.apply {
                 productsAdapter = ProductsAdapter(
                     context,
+                    scrollViewModel.navigateToProductFragment,
                     productsList
                 )
                 adapter = productsAdapter
@@ -52,11 +54,22 @@ class ScrollFragment : MainFragment() {
         }
         scrollViewModel.apply {
             addNewProducts.observe(viewLifecycleOwner) {
+                if (productsList.contains(it[0])) return@observe
                 productsList.addAll(it)
                 productsAdapter?.apply {
                     this.notifyItemRangeInserted(this.itemCount, it.size)
                 }
             }
+            navigateToProductFragment.observe(viewLifecycleOwner) {
+                findNavController().navigate(
+                    ScrollFragmentDirections.actionScrollFragmentToProductFragment(
+                        it
+                    )
+                )
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            requireActivity().finish()
         }
         return binding.root
     }

@@ -10,7 +10,10 @@
     <string name="about_underlined_link"><u>%1$s</u></string>
     <string name="about_toast_copied">Ссылка скопирована в буфер обмена</string>
 
-    <!-- Strings used for fragments for navigation -->
+    <string name="product_price">Цена: %1$s</string>
+    <string name="product_rating">Рейтинг: %1$s</string>
+
     <string name="scroll_fragment">Scroll Fragment</string>
     <string name="about_fragment">About Fragment</string>
+    <string name="product_fragment">Product Fragment</string>
 </resources>

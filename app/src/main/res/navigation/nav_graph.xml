@@ -3,20 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/ScrollFragment">
+    app:startDestination="@id/scrollFragment">
 
     <fragment
-        android:id="@+id/ScrollFragment"
+        android:id="@+id/scrollFragment"
         android:name="com.momentousmoss.vktz.ui.scroll.ScrollFragment"
         android:label="@string/scroll_fragment"
         tools:layout="@layout/fragment_scroll">
+        <action
+            android:id="@+id/action_scrollFragment_to_productFragment"
+            app:destination="@id/productFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/AboutFragment"
+        android:id="@+id/aboutFragment"
         android:name="com.momentousmoss.vktz.ui.about.AboutFragment"
         android:label="@string/about_fragment"
         tools:layout="@layout/fragment_about">
+    </fragment>
+
+    <fragment
+        android:id="@+id/productFragment"
+        android:name="com.momentousmoss.vktz.ui.product.ProductFragment"
+        android:label="@string/product_fragment"
+        tools:layout="@layout/fragment_product">
+        <argument
+            android:name="product"
+            app:argType="com.momentousmoss.vktz.ui.product.ProductArg"
+            app:nullable="true" />
     </fragment>
 
 </navigation>

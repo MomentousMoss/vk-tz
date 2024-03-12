@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
@@ -18,14 +19,19 @@ import com.bumptech.glide.request.target.Target
 import com.momentousmoss.vktz.R
 import com.momentousmoss.vktz.databinding.ItemScrollBinding
 import com.momentousmoss.vktz.loaders.JsonObjectService
+import com.momentousmoss.vktz.utils.toProductArg
+import com.momentousmoss.vktz.ui.product.ProductArg
+import com.momentousmoss.vktz.utils.MutableSingleLiveEvent
 
 class ProductsAdapter(
     private val context: Context,
+    private val liveEventAction: MutableSingleLiveEvent<ProductArg>,
     private val productsList: MutableList<JsonObjectService.Product?>
 ) : RecyclerView.Adapter<ProductsAdapter.ProductViewHolder>() {
 
-    class ProductViewHolder internal constructor(binding: ItemScrollBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    class ProductViewHolder internal constructor(
+        binding: ItemScrollBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
         val productTitle: TextView = binding.productTitle
         val productDescription: TextView = binding.productDescription
         val productImage: ImageView = binding.productImage
@@ -45,6 +51,7 @@ class ProductsAdapter(
 
     override fun onBindViewHolder(productViewHolder: ProductViewHolder, i: Int) {
         productsList[i]?.apply {
+            val product = this
             productViewHolder.apply {
                 productTitle.text = title
                 productDescription.text = description
@@ -77,6 +84,9 @@ class ProductsAdapter(
                             }
                         })
                         .into(productImage)
+                }
+                this.itemView.setOnClickListener {
+                    liveEventAction.postValue(product.toProductArg())
                 }
             }
         }
