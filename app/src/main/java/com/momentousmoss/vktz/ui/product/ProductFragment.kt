@@ -31,7 +31,7 @@ class ProductFragment : MainFragment() {
                 productArg = it.product
                 productViewModel.init(
                     productArg = productArg,
-                    requireContext()
+                    resources
                 )
             }
         }
@@ -50,12 +50,19 @@ class ProductFragment : MainFragment() {
         binding.apply {
             viewModel = productViewModel
             lifecycleOwner = viewLifecycleOwner
-
         }
         productViewModel.apply {
             setThumbnail.observe(viewLifecycleOwner) {
                 binding.apply {
                     loadThumbnail(it, productImage, imageProgressLoader, requireContext())
+                }
+            }
+            setImages.observe(viewLifecycleOwner) {
+                binding.imagesList.apply {
+                    adapter = ImagesAdapter(
+                        context,
+                        it
+                    )
                 }
             }
         }

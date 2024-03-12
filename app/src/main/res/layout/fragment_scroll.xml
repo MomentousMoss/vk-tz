@@ -28,7 +28,7 @@
             app:fastScrollEnabled="false"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:spanCount="1"
-            tools:itemCount="40"
+            tools:itemCount="4"
             tools:listitem="@layout/item_scroll" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
